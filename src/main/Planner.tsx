@@ -52,7 +52,30 @@ const Planner: React.FC = () => {
   };
 
   const handleSavePlan = () => {
+    if (!title || selectedReferences.length === 0 || courses.length === 0) {
+      alert("Please fill in all required fields before saving.");
+      return;
+    }
+
+    const savedPlans = JSON.parse(localStorage.getItem("studyPlans") || "[]");
+    savedPlans.push({
+      title,
+      references: selectedReferences,
+      interval,
+      duration,
+      courses,
+    });
+
+    localStorage.setItem("studyPlans", JSON.stringify(savedPlans));
     alert("Plan saved successfully!");
+
+    // Clear the form
+    setTitle("");
+    setSelectedReferences([]);
+    setInterval("Days");
+    setDuration(1);
+    setCourses([]);
+    setNewCourse("");
     setPreviewPlan(null);
   };
 
