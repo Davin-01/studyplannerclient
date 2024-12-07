@@ -5,6 +5,7 @@ import SignIn from "./auth/SignIn"
 import Home from "./main/Home"
 import Profile from "./main/Profile"
 import Planner from "./main/Planner"
+import MyPlans from "./main/MyPlans"
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/home/profile" element={<Profile />} />
         <Route path="/home/planner" element={<Planner />} />
+        <Route path="/home/myplans" element={<MyPlans />} />
       </Routes>
     </>
   )

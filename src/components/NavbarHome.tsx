@@ -57,6 +57,13 @@ const NavbarHome: React.FC = () => {
           >
             Planner
           </Link>
+          <Link
+            to="/home/myplans"
+            className="text-white hover:text-blue-300 transition duration-200"
+            aria-label="My Plans"
+          >
+            My Plans
+          </Link>
 
           {/* Profile Image with Dropdown */}
           <div className="relative">
