@@ -44,7 +44,7 @@ const Home: React.FC = () => {
                 Access a variety of courses tailored to improve your knowledge and skills.
               </p>
               <Link
-                to="/courses"
+                to="/home/courses"
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
               >
                 Explore Courses

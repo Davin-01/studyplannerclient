@@ -6,6 +6,8 @@ import Home from "./main/Home"
 import Profile from "./main/Profile"
 import Planner from "./main/Planner"
 import MyPlans from "./main/MyPlans"
+import Courses from "./main/Courses"
+import CourseDetail from "./main/CourseDetail"
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/home/profile" element={<Profile />} />
         <Route path="/home/planner" element={<Planner />} />
         <Route path="/home/myplans" element={<MyPlans />} />
+        <Route path="/home/courses" element={<Courses />} />
+        <Route path="/home/course/:id" element={<CourseDetail />} />
       </Routes>
     </>
   )

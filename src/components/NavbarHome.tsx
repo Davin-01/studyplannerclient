@@ -44,7 +44,7 @@ const NavbarHome: React.FC = () => {
         {/* Right Section */}
         <div className="flex items-center space-x-4">
           <Link
-            to="/courses"
+            to="/home/courses"
             className="text-white hover:text-blue-300 transition duration-200"
             aria-label="Courses"
           >
