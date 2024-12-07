@@ -51,7 +51,7 @@ const NavbarHome: React.FC = () => {
             Courses
           </Link>
           <Link
-            to="/planner"
+            to="/home/planner"
             className="text-white hover:text-blue-300 transition duration-200"
             aria-label="Planner"
           >
@@ -74,7 +74,7 @@ const NavbarHome: React.FC = () => {
               <div className="absolute right-0 w-48 mt-2 origin-top-right bg-white border border-gray-300 rounded-md shadow-lg">
                 <div className="py-1">
                   <Link
-                    to="/profile"
+                    to="/home/profile"
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
                     aria-label="Profile"
                   >

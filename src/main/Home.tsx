@@ -74,7 +74,7 @@ const Home: React.FC = () => {
                 Manage your personal information and track your learning journey.
               </p>
               <Link
-                to="/profile"
+                to="/home/profile"
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
               >
                 View Profile
