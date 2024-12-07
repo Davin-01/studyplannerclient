@@ -1,7 +1,10 @@
 import React from 'react';
 import NavbarLandPage from '../components/NavbarLandPage';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Navbar */}
@@ -20,7 +23,7 @@ const LandingPage: React.FC = () => {
           <p className="text-lg md:text-xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
             Plan your study sessions and manage your courses effectively.
           </p>
-          <button className="bg-blue-600 text-white py-2 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 animate__animated animate__fadeIn animate__delay-2s">
+          <button className="bg-blue-600 text-white py-2 px-6 rounded shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 animate__animated animate__fadeIn animate__delay-2s" onClick={() => navigate("/auth/signup")}>
             Get Started
           </button>
         </div>
