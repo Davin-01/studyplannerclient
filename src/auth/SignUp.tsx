@@ -31,6 +31,30 @@ const SignUp: React.FC = () => {
             />
           </div>
 
+          <div>
+            <label className="block text-gray-700 mb-2" htmlFor="firstname">First Name</label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 mb-2" htmlFor="Lastname">Last Name</label>
+            <input
+              type="text"
+              id="lastname"
+              name="Lastname"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+
 
           <div>
             <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>

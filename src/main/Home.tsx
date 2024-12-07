@@ -17,7 +17,7 @@ const Home: React.FC = () => {
             Your personal study companion for planning and managing your courses efficiently.
           </p>
           <Link
-            to="/signup"
+            to="/planner"
             className="bg-white text-blue-500 py-2 px-6 rounded shadow-lg hover:bg-gray-100 transition duration-200"
           >
             Get Started
