@@ -6,7 +6,7 @@ import Home from "./main/Home"
 import Profile from "./main/Profile"
 import Planner from "./main/Planner"
 import MyPlans from "./main/MyPlans"
-import Courses from "./main/Courses"
+import Courses from "./main/Events"
 import CourseDetail from "./main/CourseDetail"
 
 const App = () => {

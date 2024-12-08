@@ -5,7 +5,7 @@ const NavbarLandPage: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-md">
+    <nav className="bg-gray-950 border-b border-gray-200 shadow-md">
       <div className="flex justify-between items-center px-4 py-3">
         {/* Left SVG Icon */}
         <div className="flex items-center">

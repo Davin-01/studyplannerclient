@@ -16,7 +16,7 @@ const NavbarHome: React.FC = () => {
   };
 
   return (
-    <nav className="bg-blue-600 shadow-md">
+    <nav className="bg-gray-900 shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Left Icon */}
         <div className="flex items-center">
@@ -48,7 +48,7 @@ const NavbarHome: React.FC = () => {
             className="text-white hover:text-blue-300 transition duration-200"
             aria-label="Courses"
           >
-            Courses
+            Events
           </Link>
           <Link
             to="/home/planner"

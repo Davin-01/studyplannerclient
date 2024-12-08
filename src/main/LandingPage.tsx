@@ -30,7 +30,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Courses Section */}
-      <section className="courses py-16 px-4 md:px-8 flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg mt-8">
+      <section className="courses py-16 px-4 md:px-8 flex flex-col md:flex-row items-center bg-gray-300 shadow-lg rounded-lg mt-8">
         {/* Illustration on the Left */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center">
           <img
@@ -51,7 +51,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Planner Section */}
-      <section className="planner py-16 px-4 md:px-8 flex flex-col md:flex-row items-center bg-blue-50 shadow-lg rounded-lg mt-8">
+      <section className="planner py-16 px-4 md:px-8 flex flex-col md:flex-row items-center bg-blue-200 shadow-lg rounded-lg mt-8">
         {/* Intro about AI-Powered Planner */}
         <div className="w-full md:w-1/2 md:pr-8">
           <h2 className="text-3xl font-semibold text-blue-600 mb-4">AI-Powered Planner</h2>
@@ -72,8 +72,8 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-4">
-        <p className="text-center text-gray-600">© 2024 StudyPlanner. All rights reserved.</p>
+      <footer className="bg-gray-600 border-t border-gray-200 py-4">
+        <p className="text-center text-gray-100">© 2024 StudyPlanner. All rights reserved.</p>
       </footer>
     </div>
   );

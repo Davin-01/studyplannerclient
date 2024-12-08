@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavbarHome from "../components/NavbarHome";
-
+import axios from "axios";
+import Cookies from "js-cookie";
 interface PlanDetails {
   title: string;
   references: string[];
@@ -51,44 +52,54 @@ const Planner: React.FC = () => {
     }, 2000);
   };
 
-  const handleSavePlan = () => {
+  const handleSavePlan = async () => {
     if (!title || selectedReferences.length === 0 || courses.length === 0) {
       alert("Please fill in all required fields before saving.");
       return;
     }
+    console.log(Cookies.get("access_token"));
+    
+    try {
+      // Send data to the backend using axios
+      const response = await axios.post("http://localhost:8000/api/study-plan/", {
+        title,
+        references: selectedReferences,
+        interval,
+        duration,
+        courses,
+      }, { 
+        headers: {
+          "Authorization": `Bearer ${Cookies.get("access_token")}`
+        },
+        withCredentials: true });
 
-    const savedPlans = JSON.parse(localStorage.getItem("studyPlans") || "[]");
-    savedPlans.push({
-      title,
-      references: selectedReferences,
-      interval,
-      duration,
-      courses,
-    });
+      console.log("Plan saved successfully:", response.data);
+      alert("Plan saved successfully!");
 
-    localStorage.setItem("studyPlans", JSON.stringify(savedPlans));
-    alert("Plan saved successfully!");
-
-    // Clear the form
-    setTitle("");
-    setSelectedReferences([]);
-    setInterval("Days");
-    setDuration(1);
-    setCourses([]);
-    setNewCourse("");
-    setPreviewPlan(null);
+      // Clear the form after saving the plan
+      setTitle("");
+      setSelectedReferences([]);
+      setInterval("Days");
+      setDuration(1);
+      setCourses([]);
+      setNewCourse("");
+      setPreviewPlan(null);
+    } catch (error) {
+      console.error("Error saving plan:", error);
+      alert("Failed to save plan. Please try again.");
+    }
   };
 
   return (
     <>
       <NavbarHome />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center py-12">
-        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-lg">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Study Planner</h1>
+      <div className="min-h-screen bg-gray-600 flex flex-col items-center py-12">
+        <div className="bg-blue-950 shadow-md rounded-lg p-6 w-full max-w-lg">
+          <h1 className="text-2xl font-bold text-gray-100 mb-4">Study Planner</h1>
 
           {/* Plan Title */}
           <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-gray-100 font-semibold mb-2">
               Study Plan Title
             </label>
             <input
@@ -102,7 +113,7 @@ const Planner: React.FC = () => {
 
           {/* Reference Types */}
           <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-gray-100 font-semibold mb-2">
               Reference Types
             </label>
             <div className="flex flex-col space-y-2">
@@ -116,7 +127,7 @@ const Planner: React.FC = () => {
                       onChange={() => handleReferenceChange(type)}
                       className="text-blue-500"
                     />
-                    <span className="text-gray-700">{type}</span>
+                    <span className="text-gray-100">{type}</span>
                   </label>
                 )
               )}
@@ -125,7 +136,7 @@ const Planner: React.FC = () => {
 
           {/* Interval and Duration Selection */}
           <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-gray-100 font-semibold mb-2">
               Plan Duration
             </label>
             <div className="flex items-center space-x-2">
@@ -152,8 +163,8 @@ const Planner: React.FC = () => {
           </div>
 
           {/* Add Course Section */}
-          <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">
+          {/* <div className="mb-6">
+            <label className="block text-gray-100 font-semibold mb-2">
               Add a Course
             </label>
             <div className="flex">
@@ -171,25 +182,25 @@ const Planner: React.FC = () => {
                 Add
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* List of Courses */}
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold text-gray-700 mb-2">
+          {/* <div className="mb-6">
+            <h2 className="text-lg font-semibold text-gray-100 mb-2">
               Planned Courses
             </h2>
             {courses.length > 0 ? (
               <ul className="list-disc pl-5">
                 {courses.map((course, index) => (
-                  <li key={index} className="text-gray-800">
+                  <li key={index} className="text-gray-100">
                     {course}
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">No courses added yet.</p>
+              <p className="text-gray-100">No courses added yet.</p>
             )}
-          </div>
+          </div> */}
 
           {/* Generate Study Plan Button */}
           <button
@@ -228,7 +239,7 @@ const Planner: React.FC = () => {
         {previewPlan && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white rounded-lg p-6 w-full max-w-md">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Plan Preview</h2>
+              <h2 className="text-xl font-bold text-gray-100 mb-4">Plan Preview</h2>
               <p>
                 <strong>Title:</strong> {previewPlan.title}
               </p>
@@ -265,4 +276,3 @@ const Planner: React.FC = () => {
 };
 
 export default Planner;
-
